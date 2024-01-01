@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep dla uczniów</title>
+    <link rel="stylesheet" href="styl 1.css">
+</head>
+<body>
+    <header>
+        <h1>Dzisiejsze promocje naszego sklepu.</h1>
+    </header>
+    <nav>
+        <h2>Taniej o 30%</h2>
+        <ol>
+            <li>Gumka do mazania</li>
+            <li>Cienkopis</li>
+            <li>Pisaki 60 szt.</li>
+            <li>Markery 4 szt.</li>
+        </ol>
+    </nav>
+    <main>
+        <h2>Sprawdź cenę</h2>
+        <form method="post">
+            <select name="" id="lista">
+                <option value="gumka">Gumka do mazania</option>
+                <option value="cienkopis">Cienkopis</option>
+                <option value="pisaki">Pisaki 60 szt.</option>
+                <option value="markery">Markery 4 szt.</option>
+            </select>
+            <input type="button" value="Sprawdź" onclick="skrypt()">
+        </form><br><br>
+        <p id="wynikSkryptu"></p>
+    </main>
+    <aside>
+        <p>email: <a href="mailto:bok@sklep.pl">bok@sklep.pl</a></p><br><br>
+        <img src="promocja.png" alt="promocja">
+    </aside>
+    <footer>
+        <h4>Autor strony: 00000000000</h4>
+    </footer>
+    <script>
+        function skrypt() {
+            wybranyElement = document.getElementById("lista");
+            cena = 0;
+            wybranaOpcja = wybranyElement.options[wybranyElement.selectedIndex];
+
+            if (wybranaOpcja.value == "gumka") {
+                cena = 5;
+            }
+            if (wybranaOpcja.value == "cienkopis") {
+                cena = 8;
+            }
+            if (wybranaOpcja.value == "pisaki") {
+                cena = 12;
+            }
+            if (wybranaOpcja.value == "markery") {
+                cena = 10;
+            }
+            poPromocji = cena * 0.7;
+            wynikSkryptu = document.getElementById("wynikSkryptu");
+            wynikSkryptu.innerHTML = "Cena regularna: " + cena + "<br>Cena w promocji 30%: " + (poPromocji).toFixed(2);
+}
+    </script>
+</body>
+</html>
